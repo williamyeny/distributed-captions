@@ -1,0 +1,15 @@
+{
+	"manifest_version": 2,
+	"name": "Distributed Captions",
+	"version": "1.0",
+	"content_scripts": [
+		{
+			"matches": ["https://www.youtube.com/watch*"],
+			"js": ["content.js"]
+		}
+	],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
