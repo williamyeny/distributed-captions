@@ -18,10 +18,19 @@
                 text-align:center;
             
             }
+            #full {
+                font-size:20px;
+                position: fixed;
+                left: 10px;
+                top:10px;
+                padding:15px;
+                cursor: pointer;
+            }
         </style>
     </head>
     <body>
-        <span style="white-space: pre-line"></span>
+        <div id="full">⛶</div>
+        <span style="white-space: pre-line">Waiting for captions...</span>
         <script src='./he.js'></script>
         <script>
             let port = window.location.port
@@ -44,6 +53,14 @@
                 }
 
             }
+
+            document.getElementById('full').addEventListener('click', (e) => {
+                if (document.fullscreen) {
+                    document.exitFullscreen()
+                } else {
+                    document.documentElement.requestFullscreen()
+                }
+            })
         </script>
     </body>
 </html>
