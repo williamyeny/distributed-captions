@@ -16,6 +16,8 @@ chrome.runtime.onConnect.addListener((port) => {
                 console.log(data)
                 port.postMessage(data)
             })
+        } else if (port.name == 'sendCaption') {
+            console.log(msg)
         }
     })
 })
