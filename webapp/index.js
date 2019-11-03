@@ -4,6 +4,9 @@ const ws = require('ws')
 const app = express()
 const port = process.env.PORT || '8000'
 
+app.set('view engine', 'pug')
+app.set('views', './views')
+
 const server = new ws.Server({ server: app.listen(port) })
 
 server.on('connection', socket => {
@@ -18,5 +21,5 @@ server.on('connection', socket => {
 })
 
 app.get('/', (req, res) => {
-    res.send('test')
+    res.render('index')
 })
