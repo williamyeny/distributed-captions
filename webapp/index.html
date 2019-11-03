@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Distributed Captions</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+            span {
+                position:fixed;
+                top: 50%;
+                transform: translateY(-50%);
+                font-family:sans-serif;
+                font-size: 50px;
+                width:100%;
+                text-align:center;
+            
+            }
+        </style>
+    </head>
+    <body>
+        <span style="white-space: pre-line"> test</span>
+        <script src='./he.js'></script>
+        <script>
+            const ws = new WebSocket('ws://localhost:8000')
+            const caption = document.getElementsByTagName('span')[0]
+
+            ws.onmessage = e => {
+                const text = e.data
+                console.log(e)
+
+                if (text === '%%clear') {
+                    caption.innerHTML = ''
+                } else {
+                    caption.innerHTML = he.decode(e.data)
+                }
+
+            }
+        </script>
+    </body>
+</html>
