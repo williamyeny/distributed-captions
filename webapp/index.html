@@ -24,7 +24,11 @@
         <span style="white-space: pre-line"> test</span>
         <script src='./he.js'></script>
         <script>
-            const ws = new WebSocket('ws://localhost:8000')
+            var port = window.location.port
+            if (port.length > 0) {
+                port = ':' + port
+            }
+            const ws = new WebSocket(`ws://${window.location.hostname + port}`)
             const caption = document.getElementsByTagName('span')[0]
 
             ws.onmessage = e => {

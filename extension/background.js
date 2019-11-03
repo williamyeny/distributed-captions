@@ -8,7 +8,8 @@ let getCaptions = (videoId) => {
     })
 }
 
-const socket = new WebSocket('ws://localhost:8000')
+const url = false ? 'ws://localhost:8000' : 'ws://distributed-captions.appspot.com'
+const socket = new WebSocket(url)
 
 chrome.runtime.onConnect.addListener((port) => {
     port.onMessage.addListener((msg) => {
