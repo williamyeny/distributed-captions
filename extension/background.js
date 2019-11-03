@@ -8,6 +8,7 @@ let getCaptions = (videoId) => {
     })
 }
 
+const socket = new WebSocket('ws://localhost:8000')
 
 chrome.runtime.onConnect.addListener((port) => {
     port.onMessage.addListener((msg) => {
@@ -18,6 +19,7 @@ chrome.runtime.onConnect.addListener((port) => {
             })
         } else if (port.name == 'sendCaption') {
             console.log(msg)
+            socket.send(msg)
         }
     })
 })

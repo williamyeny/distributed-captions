@@ -30,7 +30,7 @@ video.ontimeupdate = () => {
         time = video.currentTime
         for (let i = 0; i < captions.length; i++) {
             if (time >= captions[i].start && time <= captions[i].start + captions[i].dur) { 
-                sendCaption(captions[i].text + ' | ' + captions[i].start)
+                sendCaption(captions[i].text)
                 return
             }
         }
