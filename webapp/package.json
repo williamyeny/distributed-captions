@@ -10,7 +10,7 @@
   "author": "Will Ye",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3",
+    "express": "^4.20.0",
     "ws": "^7.5.10"
   }
 }
